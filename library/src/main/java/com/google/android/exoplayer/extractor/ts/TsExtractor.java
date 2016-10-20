@@ -15,8 +15,11 @@
  */
 package com.google.android.exoplayer.extractor.ts;
 
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseBooleanArray;
+
 import com.google.android.exoplayer.C;
-import com.google.android.exoplayer.extractor.DummyTrackOutput;
 import com.google.android.exoplayer.extractor.Extractor;
 import com.google.android.exoplayer.extractor.ExtractorInput;
 import com.google.android.exoplayer.extractor.ExtractorOutput;
@@ -25,10 +28,6 @@ import com.google.android.exoplayer.extractor.SeekMap;
 import com.google.android.exoplayer.util.ParsableBitArray;
 import com.google.android.exoplayer.util.ParsableByteArray;
 import com.google.android.exoplayer.util.Util;
-
-import android.util.Log;
-import android.util.SparseArray;
-import android.util.SparseBooleanArray;
 
 import java.io.IOException;
 
@@ -347,10 +346,10 @@ public final class TsExtractor implements Extractor {
           case TS_STREAM_TYPE_MPA_LSF:
             pesPayloadReader = new MpegAudioReader(output.track(TS_STREAM_TYPE_MPA_LSF));
             break;
-          case TS_STREAM_TYPE_AAC:
+         /* case TS_STREAM_TYPE_AAC:
             pesPayloadReader = (workaroundFlags & WORKAROUND_IGNORE_AAC_STREAM) != 0 ? null
                 : new AdtsReader(output.track(TS_STREAM_TYPE_AAC), new DummyTrackOutput());
-            break;
+            break;*/
           case TS_STREAM_TYPE_AC3:
             pesPayloadReader = new Ac3Reader(output.track(TS_STREAM_TYPE_AC3), false);
             break;

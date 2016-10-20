@@ -15,8 +15,6 @@
  */
 package com.google.android.exoplayer.demo;
 
-import com.google.android.exoplayer.demo.Samples.Sample;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +27,8 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.TextView;
+
+import com.google.android.exoplayer.demo.Samples.Sample;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,36 +44,8 @@ public class SampleChooserActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.sample_chooser_activity);
     final List<SampleGroup> sampleGroups = new ArrayList<>();
-    SampleGroup group = new SampleGroup("YouTube DASH");
-    group.addAll(Samples.YOUTUBE_DASH_MP4);
-    group.addAll(Samples.YOUTUBE_DASH_WEBM);
-    sampleGroups.add(group);
-    group = new SampleGroup("Widevine DASH Policy Tests (GTS)");
-    group.addAll(Samples.WIDEVINE_GTS);
-    sampleGroups.add(group);
-    group = new SampleGroup("Widevine HDCP Capabilities Tests");
-    group.addAll(Samples.WIDEVINE_HDCP);
-    sampleGroups.add(group);
-    group = new SampleGroup("Widevine DASH: MP4,H264");
-    group.addAll(Samples.WIDEVINE_H264_MP4_CLEAR);
-    group.addAll(Samples.WIDEVINE_H264_MP4_SECURE);
-    sampleGroups.add(group);
-    group = new SampleGroup("Widevine DASH: WebM,VP9");
-    group.addAll(Samples.WIDEVINE_VP9_WEBM_CLEAR);
-    group.addAll(Samples.WIDEVINE_VP9_WEBM_SECURE);
-    sampleGroups.add(group);
-    group = new SampleGroup("Widevine DASH: MP4,H265");
-    group.addAll(Samples.WIDEVINE_H265_MP4_CLEAR);
-    group.addAll(Samples.WIDEVINE_H265_MP4_SECURE);
-    sampleGroups.add(group);
-    group = new SampleGroup("SmoothStreaming");
-    group.addAll(Samples.SMOOTHSTREAMING);
-    sampleGroups.add(group);
-    group = new SampleGroup("HLS");
+    SampleGroup group = new SampleGroup("HLS");
     group.addAll(Samples.HLS);
-    sampleGroups.add(group);
-    group = new SampleGroup("Misc");
-    group.addAll(Samples.MISC);
     sampleGroups.add(group);
     ExpandableListView sampleList = (ExpandableListView) findViewById(R.id.sample_list);
     sampleList.setAdapter(new SampleAdapter(this, sampleGroups));
